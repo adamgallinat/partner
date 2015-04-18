@@ -3,10 +3,12 @@ var application_root = __dirname,
     bodyParser       = require('body-parser'),
     path             = require('path'),
     logger           = require('morgan'),
-    session					 = require('express-session'),
+    session		     = require('express-session'),
+    bcrypt           = require('bcrypt'),
     models           = require('./models'),
-    userRouter			 = require('./routers/user_router.js');
-    methodRouter		 = require('./routers/method_router.js');
+    User             = models.users,
+    userRouter		 = require('./routers/user_router.js'),
+    methodRouter	 = require('./routers/method_router.js');
 
 var app = express();
 app.use(session({
@@ -28,11 +30,19 @@ app.get('/debug_session', function(req, res) {
 });
 
 app.post('/session', function(req, res) {
-	var id = req.body.id;
-	console.log(id);
-	req.session.currentUser = id;
-	console.log(req.session);
-	res.send(req.session);
+    User.findOne({where: {email: req.body.email}})
+        .then(function(user) {
+            console.log(user.email);
+            console.log(req.body.password);
+            bcrypt.compare(req.body.password, user.password_digest, function(err, result) {
+                if (result) {
+                    req.session.currentUser = user.id;
+                    res.send(user);
+                } else {
+                    res.status(401).send({err:401, msg:'Wrong creds'});
+                }
+            });
+        });
 });
 
 app.delete('/session', function(req, res) {

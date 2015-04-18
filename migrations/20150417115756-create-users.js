@@ -11,32 +11,18 @@ module.exports = {
       first_name: {
         type: DataTypes.STRING,
         allowNull: false
-        validate: {
-          isAlpha: {msg: 'First Name must be letters only'},
-          notEmpty: {msg: 'First Name cannot be blank'}
-        }
       },
       last_name: {
         type: DataTypes.STRING,
         allowNull: false
-        validate: {
-          isAlpha: {msg: 'Last name must be letters only'},
-          notEmpty: {msg: 'Last name must be letters only'}
-        }
       },
       email: {
         type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          isEmail: {msg: 'Not a valid email address'}
-        }
+        allowNull: false
       },
       password_digest: {
         type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          notEmpty: {msg: 'Password cannot be empty'}
-        }
+        allowNull: false
       },
       organization_id: {
         type: DataTypes.INTEGER

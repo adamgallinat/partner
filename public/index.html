@@ -5,8 +5,42 @@
 	<title>Title</title>
 	<script src='bundle.js'></script>
 	<script src='js/app.js'></script>
+	<script src='js/models/user.js'></script>
+	<script src='js/models/method.js'></script>
+	<script src='js/collections/users.js'></script>
+	<script src='js/collections/methods.js'></script>
+	<script src='js/views/log_in.js'></script>
+	<script src='js/views/sign_up.js'></script>
 </head>
 <body>
-	<h1>Hello world!</h1>
+	<h1>Partner</h1>
+	<div id='sign-up'></div>
+	<div id='log-in'></div>
+
+
+	<template id='nav-bar-template'></template>
+	<template id='sign-up-template'>
+		<div id='sign-up-form'>
+			<div id='sign-up-errors'></div>
+			<input type="text" name="first_name" placeholder="first name">
+			<input type="text" name="last_name" placeholder="last name">
+			<input type="text" name="email_address" placeholder="email address">
+			<input type="password" name="password" placeholder="password">
+			<input type="password" name="password2" placeholder="confirm password">
+		</div>
+		<button id="sign-up">Sign Up</button>
+		<div id='or-log-in'>Or, log in</div>
+	</template>
+
+	<template id='log-in-template'>
+		<div id='log-in-form'>
+			<div id='log-in-errors'></div>
+			<input type="text" name="email_address" placeholder="email address">
+			<input type="password" name="password" placeholder="password">
+		</div>
+		<button id="log-in">Log In</button>
+		<div id='or-sign-up'>Or, sign up</div>
+	</template>
+
 </body>
 </html>

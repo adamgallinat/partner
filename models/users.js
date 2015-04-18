@@ -1,11 +1,39 @@
 "use strict";
 module.exports = function(sequelize, DataTypes) {
   var users = sequelize.define("users", {
-    first_name: DataTypes.STRING,
-    last_name: DataTypes.STRING,
-    email: DataTypes.STRING,
-    password_digest: DataTypes.STRING,
-    organization_id: DataTypes.INTEGER
+    first_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isAlpha: {msg: 'First Name must be letters only'},
+        notEmpty: {msg: 'First Name cannot be blank'}
+      }
+    },
+    last_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isAlpha: {msg: 'Last name must be letters only'},
+        notEmpty: {msg: 'Last name cannot be blank'}
+      }
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isEmail: {msg: 'Not a valid email address'}
+      }
+    },
+    password_digest: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: {msg: 'Password cannot be empty'}
+      }
+    },
+    organization_id: {
+      type: DataTypes.INTEGER
+    }
   }, {
     classMethods: {
       associate: function(models) {

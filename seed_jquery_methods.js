@@ -8,7 +8,7 @@ request({
 	method: 'GET'
 }, function(err, res, body) {
 	var $ = cheerio.load(body);
-	$('.entry-title').children('a').each(function(i) {
+	$('.entry-title').children('a').each(function() {
 		var item = {
 			technology: 'JQuery',
 			name: $(this).text(),
