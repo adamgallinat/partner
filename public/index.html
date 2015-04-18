@@ -9,37 +9,60 @@
 	<script src='js/models/method.js'></script>
 	<script src='js/collections/users.js'></script>
 	<script src='js/collections/methods.js'></script>
+	<script src='js/views/nav_bar.js'></script>
 	<script src='js/views/log_in.js'></script>
 	<script src='js/views/sign_up.js'></script>
+	<script src='js/views/rate_method.js'></script>
 </head>
 <body>
-	<h1>Partner</h1>
+	<div id='nav-bar'></div>
 	<div id='sign-up'></div>
 	<div id='log-in'></div>
+	<div id='rate-method'></div>
 
 
-	<template id='nav-bar-template'></template>
+	<template id='nav-bar-template'>
+		<h1>Partner</h1>
+		{{#if first_name}}
+			<div id='user-info'>
+				<span>Welcome back, {{first_name}}!</span>
+				<button id='log-out'>Log Out</button>
+			</div>
+		{{/if}}
+	</template>
+
 	<template id='sign-up-template'>
 		<div id='sign-up-form'>
 			<div id='sign-up-errors'></div>
-			<input type="text" name="first_name" placeholder="first name">
-			<input type="text" name="last_name" placeholder="last name">
-			<input type="text" name="email_address" placeholder="email address">
-			<input type="password" name="password" placeholder="password">
-			<input type="password" name="password2" placeholder="confirm password">
+			<input type='text' name='first_name' placeholder='first name'>
+			<input type='text' name='last_name' placeholder='last name'>
+			<input type='text' name='email_address' placeholder='email address'>
+			<input type='password' name='password' placeholder='password'>
+			<input type='password' name='password2' placeholder='confirm password'>
 		</div>
-		<button id="sign-up">Sign Up</button>
+		<button id='sign-up'>Sign Up</button>
 		<div id='or-log-in'>Or, log in</div>
 	</template>
 
 	<template id='log-in-template'>
 		<div id='log-in-form'>
 			<div id='log-in-errors'></div>
-			<input type="text" name="email_address" placeholder="email address">
-			<input type="password" name="password" placeholder="password">
+			<input type='text' name="email_address" placeholder='email address'>
+			<input type='password' name='password' placeholder='password'>
 		</div>
-		<button id="log-in">Log In</button>
+		<button id='log-in'>Log In</button>
 		<div id='or-sign-up'>Or, sign up</div>
+	</template>
+
+	<template id='technologies-template'>
+		{{#each type}}
+			<div id='{{this}}-technology'>{{this}}</div>
+		{{/each}}
+	</template>
+
+	<template id='rate-method-template'>
+		<a href={{url}}>{{name}}</a>
+		<div id='rating'></div>
 	</template>
 
 </body>

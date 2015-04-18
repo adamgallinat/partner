@@ -8,7 +8,13 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
         methods.belongsToMany(models.users, {through: 'knowledges', foreignKey: 'method_id'});
-      }
+      },
+      getAllOfType: function(type) {
+        methods.findAll({where: {technology: type}})
+          .then(function(responses) {
+            return responses;
+          });
+      },
     }
   });
   return methods;

@@ -32,8 +32,6 @@ app.get('/debug_session', function(req, res) {
 app.post('/session', function(req, res) {
     User.findOne({where: {email: req.body.email}})
         .then(function(user) {
-            console.log(user.email);
-            console.log(req.body.password);
             bcrypt.compare(req.body.password, user.password_digest, function(err, result) {
                 if (result) {
                     req.session.currentUser = user.id;

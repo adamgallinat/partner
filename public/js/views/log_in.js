@@ -3,27 +3,51 @@ App.Views.LogIn = Backbone.View.extend({
 	initialize: function() {
 		console.log('new login view created');
 		this.template = Handlebars.compile($('#log-in-template').html());
+		this.render();
 	},
 	render: function() {
 		this.$el.html(this.template());
 	},
 	events: {
 		'click #or-sign-up': 'orSignUp',
-		'click #log-in': 'logIn'
+		'click #log-in': 'clickLogIn'
 	},
-	logIn: function() {
-		console.log('login');
+	clickLogIn: function() {
 		var userInfo = {
 			email: $('[name=email_address]').val(),
 			password: $('[name=password]').val()
 		};
-		$.post('/session', userInfo)
-			.done(console.log('Logged in!'))
-			.fail(function(error) {
-				console.log(error);
-			});
+		var clientErrors = this.clientSideValidations();
+		if (!clientErrors.length) {
+			$.post('/session', userInfo)
+				.done(function(data) {
+					this.logInUser(data);
+				}.bind(this))
+				.fail(function(error) {
+					$('#log-in-errors').html(error.responseJSON.msg);
+				});
+		} else {
+			$('#log-in-errors').empty()
+												 .html(clientErrors);
+		}
 	},
-
+	clientSideValidations: function() {
+		var response = [];
+		if (!$('[name=email_address]').val()) {
+			response.push($('<li>').html('Email address cannot be blank!'));
+		}
+		if (!$('[name=password]').val()) {
+			response.push($('<li>').html('Password cannot be blank!'));
+		} else if ($('[name=password]').val().length < 6) {
+			response.push($('<li>').html('Password must be > 6 characters!'));
+		}
+		return response;
+	},
+	logInUser: function(data) {
+		App.navBar.model = new App.Models.User(data);
+		this.$el.empty();
+		App.navBar.render();
+	},
 	orSignUp: function() {
 		this.$el.empty();
 		App.signUp.render();

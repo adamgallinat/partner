@@ -23,18 +23,14 @@ userRouter.get('/:id', function(req, res) {
 });
 
 userRouter.post('/', function(req, res) {
-	console.log(req.body.password);
 	bcrypt.hash(req.body.password, 10, function(err, hash) {
 		req.body.password_digest = hash;
 		User.create(req.body)
 			.then(function(result) {
 				req.session.currentUser = result.id;
-				req.session.currentUserPassword = req.body.password;
 				res.send(result);
 			},
 			function(error) {
-				console.log('ERROR IS', error.message);
-				console.log('RES IS', res);
 				res.status(422);
 				res.send({
 					status: 422,

@@ -3,7 +3,6 @@ App.Views.SignUp = Backbone.View.extend({
 	initialize: function() {
 		console.log('new signup view created');
 		this.template = Handlebars.compile($('#sign-up-template').html());
-		this.render();
 	},
 	render: function() {
 		this.$el.html(this.template());
@@ -26,10 +25,8 @@ App.Views.SignUp = Backbone.View.extend({
 		} else {
 			$.post('/users', newUser)
 				.done(function(data) {
-					App.currentUser = new App.Models.User(data);
-					$('input').val('');
-					App.users.fetch();
-				})
+					this.signUpUser(data);
+				}.bind(this))
 				.fail(function(error) {
 					var errorMessages = error.responseJSON.msg.errors.map(function(message) {
 						return $('<li>').html(message.message);
@@ -49,6 +46,11 @@ App.Views.SignUp = Backbone.View.extend({
 			response.push($('<li>').html('Passwords must be > 6 characters'));
 		}
 		return response;
+	},
+	signUpUser: function(data) {
+		App.navBar.model = new App.Models.User(data);
+		this.$el.empty();
+		App.navBar.render();
 	},
 	orLogIn: function() {
 		this.$el.empty();
