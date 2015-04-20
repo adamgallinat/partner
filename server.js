@@ -8,7 +8,8 @@ var application_root = __dirname,
     models           = require('./models'),
     User             = models.users,
     userRouter		 = require('./routers/user_router.js'),
-    methodRouter	 = require('./routers/method_router.js');
+    methodRouter	 = require('./routers/method_router.js'),
+    knowledgeRouter  = require('./routers/knowledge_router.js');
 
 var app = express();
 app.use(session({
@@ -27,6 +28,22 @@ app.use( express.static( path.join( application_root, 'browser' )))
 
 app.get('/debug_session', function(req, res) {
 	res.send(req.session);
+});
+
+app.get('/current_user', function(req, res) {
+    if (!req.session.currentUser) {
+        res.send('not logged in');
+    }
+    if (req.session.currentUser) {
+        User.findOne(req.session.currentUser)
+            .then(function(user) {
+                if (!user) {
+                    res.send('not logged in');
+                } else {
+                    res.send(user);
+                }
+            });
+    }
 });
 
 app.post('/session', function(req, res) {
@@ -51,6 +68,7 @@ app.delete('/session', function(req, res) {
 // Users
 app.use('/users', userRouter);
 app.use('/methods', methodRouter);
+app.use('/knowledges', knowledgeRouter);
 
 // Export app as module
 module.exports = app;

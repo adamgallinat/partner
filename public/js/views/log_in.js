@@ -3,7 +3,6 @@ App.Views.LogIn = Backbone.View.extend({
 	initialize: function() {
 		console.log('new login view created');
 		this.template = Handlebars.compile($('#log-in-template').html());
-		this.render();
 	},
 	render: function() {
 		this.$el.html(this.template());
@@ -47,6 +46,7 @@ App.Views.LogIn = Backbone.View.extend({
 		App.navBar.model = new App.Models.User(data);
 		this.$el.empty();
 		App.navBar.render();
+		App.technologies.render();
 	},
 	orSignUp: function() {
 		this.$el.empty();

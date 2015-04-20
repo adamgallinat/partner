@@ -20,6 +20,7 @@ App.Views.NavBar = Backbone.View.extend({
 				this.model = new App.Models.User();
 				this.render();
 				App.logIn.render();
+				App.technologies.$el.empty();
 			}.bind(this));
 	}
 });

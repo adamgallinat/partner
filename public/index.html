@@ -12,12 +12,15 @@
 	<script src='js/views/nav_bar.js'></script>
 	<script src='js/views/log_in.js'></script>
 	<script src='js/views/sign_up.js'></script>
-	<script src='js/views/rate_method.js'></script>
+	<script src='js/views/technologies.js'></script>
+	<script src='js/views/all_methods.js'></script>
+	<script src='js/views/list_method.js'></script>
 </head>
 <body>
 	<div id='nav-bar'></div>
 	<div id='sign-up'></div>
 	<div id='log-in'></div>
+	<div id='technologies'></div>
 	<div id='rate-method'></div>
 
 
@@ -55,12 +58,12 @@
 	</template>
 
 	<template id='technologies-template'>
-		{{#each type}}
-			<div id='{{this}}-technology'>{{this}}</div>
+		{{#each this}}
+			<div class='technology'>{{name}}</div>
 		{{/each}}
 	</template>
 
-	<template id='rate-method-template'>
+	<template id='list-method-template'>
 		<a href={{url}}>{{name}}</a>
 		<div id='rating'></div>
 	</template>
