@@ -9,7 +9,7 @@ App.Views.LogIn = Backbone.View.extend({
 	},
 	events: {
 		'click #or-sign-up': 'orSignUp',
-		'click #log-in': 'clickLogIn'
+		'click #log-in-button': 'clickLogIn'
 	},
 	clickLogIn: function() {
 		var userInfo = {

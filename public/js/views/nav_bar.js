@@ -19,6 +19,7 @@ App.Views.NavBar = Backbone.View.extend({
 			.then(function(user) {
 				App.technologies.$el.empty();
 				App.allMethods.$el.empty();
+				App.allMethods.$el.hide();
 				App.modal.$el.empty().hide();
 				this.model = new App.Models.User();
 				this.render();

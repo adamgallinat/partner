@@ -24,12 +24,12 @@ App.Views.ListMethod = Backbone.View.extend({
 			}
 	},
 	events: {
-		'click': 'renderModalView'
+		'click': 'renderMethodView'
 	},
-	renderModalView: function() {
-		App.modal.model = this.model;
-		App.modal.render();
-		App.modal.index = App.methods.indexOf(this.model);
+	renderMethodView: function() {
+		App.method.model = this.model;
+		App.method.render();
+		App.method.index = App.methods.indexOf(this.model);
 	},
 	reRender: function() {
 		this.$el.empty();

@@ -11,6 +11,7 @@ App.Views.AllMethods = Backbone.View.extend({
 				this.collection.each(this.renderOne, this);
 				this.renderPercentComplete();
 			}.bind(this));
+		this.$el.css('display', 'inline-block');
 	},
 	renderOne: function(method) {
 		var newMethodView = new App.Views.ListMethod({model: method});

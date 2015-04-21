@@ -12,6 +12,7 @@ $(function() {
 	App.logIn = new App.Views.LogIn();
 	App.signUp = new App.Views.SignUp();
 	App.technologies = new App.Views.Technologies();
+	App.method = new App.Views.Method({model: new App.Models.Method()});
 	App.modal = new App.Views.Modal({model: new App.Models.Method()});
 	App.allMethods = new App.Views.AllMethods();
 	$.get('current_user')

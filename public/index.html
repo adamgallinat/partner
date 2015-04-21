@@ -20,6 +20,7 @@
 	<script src='js/views/technologies.js'></script>
 	<script src='js/views/all_methods.js'></script>
 	<script src='js/views/list_method.js'></script>
+	<script src='js/views/method.js'></script>
 	<script src='js/views/modal.js'></script>
 </head>
 <body>
@@ -29,6 +30,9 @@
 		<div id='log-in'></div>
 		<div id='technologies'></div>
 		<div id='all-methods'></div>
+		<div id='method-container'>
+			<div id='method'></div>
+		</div>
 		<div id='modal'></div>
 	</div>
 
@@ -51,7 +55,7 @@
 			<input type='password' name='password' placeholder='password'>
 			<input type='password' name='password2' placeholder='confirm password'>
 		</div>
-		<button id='sign-up'>Sign Up</button>
+		<button id='sign-up-button'>Sign Up</button>
 		<div id='or-log-in'>Or, log in</div>
 	</template>
 
@@ -61,7 +65,7 @@
 			<input type='text' name="email_address" placeholder='email address'>
 			<input type='password' name='password' placeholder='password'>
 		</div>
-		<button id='log-in'>Log In</button>
+		<button id='log-in-button'>Log In</button>
 		<div id='or-sign-up'>Or, sign up</div>
 	</template>
 
@@ -80,17 +84,21 @@
 		{{comfort}}
 	</template>
 
-	<template id='modal-template'>
+	<template id='method-template'>
 		<div data-url={{url}} id='method-name'>{{name}}</div>
-		<div id='modal-rating'>
+		<div id='method-rating'>
 			<span class='dot' data-val='0'></span>
 			<span class='dot' data-val='1'></span>
 			<span class='dot' data-val='2'></span>
-			<div id='left'>Back</div>
-			<div id='right'>Forward</div>
+			<div id='left'><<</div>
+			<div id='right'>>></div>
 		</div>
 	</template>
 
+	<template id='modal-template'>
+		<div id='shader'></div>
+		<iframe src={{url}}></iframe>
+	</template>
 
 </body>
 </html>

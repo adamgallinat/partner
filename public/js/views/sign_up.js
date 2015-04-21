@@ -8,7 +8,7 @@ App.Views.SignUp = Backbone.View.extend({
 		this.$el.html(this.template());
 	},
 	events: {
-		'click #sign-up': 'createAndLogIn',
+		'click #sign-up-button': 'createAndLogIn',
 		'click #or-log-in': 'orLogIn'
 	},
 	createAndLogIn: function() {
