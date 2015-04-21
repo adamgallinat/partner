@@ -1,1 +1,3 @@
-App.Collections.Knowledges = Backbone.Collection.extend({});
+App.Collections.Knowledges = Backbone.Collection.extend({
+	url: '/knowledges'
+});

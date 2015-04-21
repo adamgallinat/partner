@@ -8,6 +8,7 @@ App.Views.Method = Backbone.View.extend({
 	render: function() {
 		this.$el.html(this.template(this.model.toJSON()));
 		this.renderComfort();
+		this.$el.parent().show();
 		this.$el.show();
 	},
 	renderComfort: function() {
@@ -115,6 +116,7 @@ App.Views.Method = Backbone.View.extend({
 		}
 	},
 	openModal: function() {
-		// OPEN MODAL VIEW
+		App.modal.model = this.model;
+		App.modal.render();
 	}
 });

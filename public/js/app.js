@@ -2,7 +2,16 @@ var App = {
 	Models: {},
 	Collections: {},
 	Views: {},
-	Routers: {}
+	Routers: {},
+	clearDisplay: function() {
+		$('#sign-up').empty();
+		$('#log-in').empty();
+		$('#technologies').empty();
+		$('#all-methods').hide().empty();
+		$('#method-container').hide();
+		$('#method').empty();
+		$('#modal').empty();
+	}
 };
 
 $(function() {
@@ -15,6 +24,7 @@ $(function() {
 	App.method = new App.Views.Method({model: new App.Models.Method()});
 	App.modal = new App.Views.Modal({model: new App.Models.Method()});
 	App.allMethods = new App.Views.AllMethods();
+	App.partnerList = new App.Views.PartnerList();
 	$.get('current_user')
 		.done(function(data) {
 			if (data === 'not logged in') {

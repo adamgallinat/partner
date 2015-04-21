@@ -49,12 +49,12 @@ App.Views.SignUp = Backbone.View.extend({
 	},
 	signUpUser: function(data) {
 		App.navBar.model = new App.Models.User(data);
-		this.$el.empty();
+		App.clearDisplay();
 		App.navBar.render();
 		App.technologies.render();
 	},
 	orLogIn: function() {
-		this.$el.empty();
+		App.clearDisplay();
 		App.logIn.render();
 	}
 });

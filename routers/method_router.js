@@ -9,6 +9,7 @@ var methodRouter = express.Router();
 methodRouter.get('/', function(req, res) {
 	Method.findAll()
 		.then(function(methods) {
+      console.log(req.body);
 			res.send(methods);
 		});
 });

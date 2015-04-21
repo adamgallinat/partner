@@ -5,12 +5,12 @@ App.Views.AllMethods = Backbone.View.extend({
 	},
 	renderAll: function() {
 		this.$el.empty();
-		$.get('/knowledges/' + App.navBar.model.get('id') + '/' + App.currentTechnology)
-			.done(function(data) {
-				App.currentUserKnowledges = data;
+		// $.get('/knowledges/' + App.navBar.model.get('id') + '/' + App.currentTechnology)
+		// 	.done(function(data) {
+		// 		App.currentUserKnowledges = data;
 				this.collection.each(this.renderOne, this);
 				this.renderPercentComplete();
-			}.bind(this));
+			// }.bind(this));
 		this.$el.css('display', 'inline-block');
 	},
 	renderOne: function(method) {
@@ -21,5 +21,15 @@ App.Views.AllMethods = Backbone.View.extend({
 		var percentComplete = Math.floor((App.currentUserKnowledges.length / this.collection.length) * 100);
 		$('#completion').remove();
 		this.$el.prepend($('<div id="completion">').html(percentComplete + '% complete'));
+		if (percentComplete === 100) {
+			$('#completion').append($('<button id="compare">Find a Partner!</button>'))
+		}
+	},
+	events: {
+		'click #compare': 'renderPartners'
+	},
+	renderPartners: function() {
+		App.clearDisplay();
+		App.partnerList.render();
 	}
 });

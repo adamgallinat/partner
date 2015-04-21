@@ -18,12 +18,16 @@ App.Views.Technologies = Backbone.View.extend({
 	},
 	renderRateMethods: function(clicked) {
 		App.currentTechnology = clicked.target.innerText;
-		App.technologies.$el.empty();
-		$.get('/methods/of_type/' + App.currentTechnology)
-			.done(function(methods) {
-				App.methods = new App.Collections.Methods(methods);
-				App.allMethods.collection = App.methods;
-				App.allMethods.renderAll();
-			});
+		App.clearDisplay();
+		$.get('/knowledges/' + App.navBar.model.get('id') + '/' + App.currentTechnology)
+			.done(function(data) {
+				App.currentUserKnowledges = data;
+				$.get('/methods/of_type/' + App.currentTechnology)
+					.done(function(methods) {
+						App.methods = new App.Collections.Methods(methods);
+						App.allMethods.collection = App.methods;
+						App.allMethods.renderAll();
+					});
+			}); 
 	}
 });
