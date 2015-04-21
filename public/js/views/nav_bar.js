@@ -17,10 +17,12 @@ App.Views.NavBar = Backbone.View.extend({
 			method: 'DELETE'
 		})
 			.then(function(user) {
+				App.technologies.$el.empty();
+				App.allMethods.$el.empty();
+				App.modal.$el.empty().hide();
 				this.model = new App.Models.User();
 				this.render();
 				App.logIn.render();
-				App.technologies.$el.empty();
 			}.bind(this));
 	}
 });

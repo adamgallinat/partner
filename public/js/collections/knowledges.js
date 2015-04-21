@@ -1,0 +1,1 @@
+App.Collections.Knowledges = Backbone.Collection.extend({});

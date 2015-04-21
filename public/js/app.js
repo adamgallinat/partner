@@ -7,14 +7,13 @@ var App = {
 
 $(function() {
 	console.log('Loaded, bro.');
-	App.currentUser = new App.Models.User();
-	App.methods = new App.Collections.Methods();
 	App.users = new App.Collections.Users();
 	App.navBar = new App.Views.NavBar({model: new App.Models.User()});
 	App.logIn = new App.Views.LogIn();
 	App.signUp = new App.Views.SignUp();
 	App.technologies = new App.Views.Technologies();
-	App.allMethods = new App.Views.AllMethods({collection: new App.Collections.Methods()});
+	App.modal = new App.Views.Modal({model: new App.Models.Method()});
+	App.allMethods = new App.Views.AllMethods();
 	$.get('current_user')
 		.done(function(data) {
 			if (data === 'not logged in') {

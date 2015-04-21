@@ -1,0 +1,23 @@
+#modal {
+	height: 50vh;
+	width: 60vw;
+	position: absolute;
+	background-color: lightgrey;
+	left: 20vw;
+	top: 20vh;
+	font-size: 60px;
+	text-align: center;
+	display: none;
+}
+
+.dot {
+	height: 100px;
+	width: 100px;
+	border-radius: 50px;
+	border: 2px solid black;
+	display: inline-block;
+}
+
+.selected {
+	background-color: green;
+}

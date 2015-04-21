@@ -29,14 +29,14 @@ knowledgeRouter.post('/', function(req, res) {
 });
 
 knowledgeRouter.put('/:user_id/:method_id', function(req, res) {
-	Knowledge.findAll({where: {user_id: req.params.user_id}})
-		.then(function(knowledges) {
-			knowledges.findOne({where: {method_id: req.params.method_id}})
+	Knowledge.findOne({where: {
+		user_id: req.params.user_id,
+		method_id: req.params.method_id
+	}})
+		.then(function(knowledge) {
+			knowledge.update(req.body)
 				.then(function(knowledge) {
-					knowledge.update(req.body)
-						.then(function(knowledge) {
-							res.send(knowledge);
-						});
+					res.send(knowledge);
 				});
 		});
 });

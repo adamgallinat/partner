@@ -40,4 +40,11 @@ methodRouter.get('/:id', function(req, res) {
 		});
 });
 
+methodRouter.put('/:id', function(req, res) {
+  Method.findOne({where: {id: req.params.id}})
+    .then(function(method) {
+      res.send(method);
+    });
+});
+
 module.exports = methodRouter;

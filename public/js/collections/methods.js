@@ -3,5 +3,7 @@ App.Collections.Methods = Backbone.Collection.extend({
 		console.log('new methods collection created');
 		this.fetch();
 	},
+	model: App.Models.Method,
+	comparator: 'name',
 	url: '/methods'
 });

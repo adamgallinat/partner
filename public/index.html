@@ -3,26 +3,34 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Title</title>
+	<link rel='stylesheet' type='text/css' href='css/style.css'>
 	<script src='bundle.js'></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+	<script src='raty-master/lib/jquery.raty.js'></script>
 	<script src='js/app.js'></script>
 	<script src='js/models/user.js'></script>
 	<script src='js/models/method.js'></script>
+	<script src='js/models/knowledge.js'></script>
 	<script src='js/collections/users.js'></script>
 	<script src='js/collections/methods.js'></script>
+	<script src='js/collections/knowledges.js'></script>
 	<script src='js/views/nav_bar.js'></script>
 	<script src='js/views/log_in.js'></script>
 	<script src='js/views/sign_up.js'></script>
 	<script src='js/views/technologies.js'></script>
 	<script src='js/views/all_methods.js'></script>
 	<script src='js/views/list_method.js'></script>
+	<script src='js/views/modal.js'></script>
 </head>
 <body>
-	<div id='nav-bar'></div>
-	<div id='sign-up'></div>
-	<div id='log-in'></div>
-	<div id='technologies'></div>
-	<div id='rate-method'></div>
-
+	<div id='main'>
+		<div id='nav-bar'></div>
+		<div id='sign-up'></div>
+		<div id='log-in'></div>
+		<div id='technologies'></div>
+		<div id='all-methods'></div>
+		<div id='modal'></div>
+	</div>
 
 	<template id='nav-bar-template'>
 		<h1>Partner</h1>
@@ -64,9 +72,25 @@
 	</template>
 
 	<template id='list-method-template'>
-		<a href={{url}}>{{name}}</a>
-		<div id='rating'></div>
+		<div class='name'>{{name}}</div>
+		<div class='rating'></div>
 	</template>
+
+	<template id='list-method-comfort-template'>
+		{{comfort}}
+	</template>
+
+	<template id='modal-template'>
+		<div data-url={{url}} id='method-name'>{{name}}</div>
+		<div id='modal-rating'>
+			<span class='dot' data-val='0'></span>
+			<span class='dot' data-val='1'></span>
+			<span class='dot' data-val='2'></span>
+			<div id='left'>Back</div>
+			<div id='right'>Forward</div>
+		</div>
+	</template>
+
 
 </body>
 </html>

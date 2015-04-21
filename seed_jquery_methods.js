@@ -14,6 +14,8 @@ request({
 			name: $(this).text(),
 			url: 'http:' + $(this).attr('href')
 		};
-		Method.create(item);
+		if (item.name[0] === '.') {
+			Method.create(item);
+		}
 	});
 });

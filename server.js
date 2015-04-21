@@ -49,14 +49,18 @@ app.get('/current_user', function(req, res) {
 app.post('/session', function(req, res) {
     User.findOne({where: {email: req.body.email}})
         .then(function(user) {
-            bcrypt.compare(req.body.password, user.password_digest, function(err, result) {
-                if (result) {
-                    req.session.currentUser = user.id;
-                    res.send(user);
-                } else {
-                    res.status(401).send({err:401, msg:'Wrong creds'});
-                }
-            });
+            if(user) {
+                bcrypt.compare(req.body.password, user.password_digest, function(err, result) {
+                    if (result) {
+                        req.session.currentUser = user.id;
+                        res.send(user);
+                    } else {
+                        res.status(401).send({err:401, msg:'Wrong creds'});
+                    }
+                });
+            } else {
+                res.status(401).send({err:401, msg:'Wrong creds'});
+            }
         });
 });
 
