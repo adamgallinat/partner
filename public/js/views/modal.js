@@ -24,9 +24,6 @@ App.Views.Modal = Backbone.View.extend({
 		}
 		$('.dot').on('click', function() {
 			App.modal.setComfort(parseInt($(this).data('val')));
-			// App.modal.index++;
-			// App.modal.model = App.methods.at(App.modal.index);
-			// App.modal.render();
 		});
 	},
 	setComfort: function(comfort) {
@@ -48,6 +45,8 @@ App.Views.Modal = Backbone.View.extend({
 			data: data
 		})
 			.then(function(response) {
+				App.currentUserKnowledges.push(response);
+				App.allMethods.renderPercentComplete();
 				this.model.set('methodKnowledge', response);
 				this.model.save();
 				$('.dot').removeClass('selected');
@@ -87,5 +86,31 @@ App.Views.Modal = Backbone.View.extend({
 				App.modal.model = App.methods.at(App.modal.index);
 				App.modal.render();
 			}.bind(this));
+	},
+	events: {
+		'click #left': 'goBack',
+		'click #right': 'goForward'
+	},
+	goBack: function() {
+		if (App.modal.index > 0) {
+			App.modal.index--;
+			App.modal.model = App.methods.at(App.modal.index);
+			App.modal.render();
+		} else {
+			App.modal.index = App.methods.length-1;
+			App.modal.model = App.methods.at(App.modal.index);
+			App.modal.render();
+		}
+	},
+	goForward: function() {
+		if (App.modal.index === App.methods.length-1) {
+			App.modal.index = 0;
+			App.modal.model = App.methods.at(App.modal.index);
+			App.modal.render();
+		} else {
+			App.modal.index++;
+			App.modal.model = App.methods.at(App.modal.index);
+			App.modal.render();
+		}
 	}
 });

@@ -17,8 +17,9 @@ App.Views.Technologies = Backbone.View.extend({
 		'click .technology': 'renderRateMethods'
 	},
 	renderRateMethods: function(clicked) {
+		App.currentTechnology = clicked.target.innerText;
 		App.technologies.$el.empty();
-		$.get('/methods/of_type/' + clicked.target.innerText)
+		$.get('/methods/of_type/' + App.currentTechnology)
 			.done(function(methods) {
 				App.methods = new App.Collections.Methods(methods);
 				App.allMethods.collection = App.methods;

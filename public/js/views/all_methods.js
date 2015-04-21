@@ -5,18 +5,20 @@ App.Views.AllMethods = Backbone.View.extend({
 	},
 	renderAll: function() {
 		this.$el.empty();
-		$.get('/knowledges/' + App.navBar.model.get('id'))
+		$.get('/knowledges/' + App.navBar.model.get('id') + '/' + App.currentTechnology)
 			.done(function(data) {
 				App.currentUserKnowledges = data;
-				// this.collection.each(function(method) {
-				// 	var newView = new App.Views.ListMethod({model: method});
-				// 	this.$el.append(newView.el);
-				// }.bind(this));
-				this.collection.each(this.renderOne, this)
+				this.collection.each(this.renderOne, this);
+				this.renderPercentComplete();
 			}.bind(this));
 	},
 	renderOne: function(method) {
 		var newMethodView = new App.Views.ListMethod({model: method});
 		this.$el.append(newMethodView.el);
+	},
+	renderPercentComplete: function() {
+		var percentComplete = Math.floor((App.currentUserKnowledges.length / this.collection.length) * 100);
+		$('#completion').remove();
+		this.$el.prepend($('<div id="completion">').html(percentComplete + '% complete'));
 	}
 });

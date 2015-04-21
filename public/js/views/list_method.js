@@ -17,7 +17,8 @@ App.Views.ListMethod = Backbone.View.extend({
 				}
 			}.bind(this));
 			if (methodKnowledge) {
-				this.$el.append($('<div>').html(methodKnowledge.comfort));
+				this.$el.addClass('known')
+								.append($('<div>').html(methodKnowledge.comfort));
 			} else {
 				this.$el.append($('<div>').html(0));
 			}
@@ -33,6 +34,7 @@ App.Views.ListMethod = Backbone.View.extend({
 	reRender: function() {
 		this.$el.empty();
 		this.$el.html(this.template(this.model.toJSON()));
-			this.$el.append($('<div>').html(this.model.get('methodKnowledge').comfort));
+		this.$el.addClass('known');
+		this.$el.append($('<div>').html(this.model.get('methodKnowledge').comfort));
 	}
 });
