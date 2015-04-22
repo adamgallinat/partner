@@ -1,97 +1,185 @@
+@import url(http://fonts.googleapis.com/css?family=Crete+Round);
+@import url(http://fonts.googleapis.com/css?family=Lora);
+
 * {
-	box-sizing: border-box;
+	box-sizing: 			border-box;
+	font-family: 			'Lora', serif;
+	cursor: 					default;
+}
+
+button {
+	background-color: white;
+	border-top: 			1px solid #595151;
+	border-right: 		2px solid #595151;
+	border-bottom: 		2px solid #595151;
+	border-left: 			1px solid #595151;
+}
+
+button:focus {
+	outline: 					none;
+}
+
+button:hover {
+	background-color: #E7E4D5;
+}
+
+button:active {
+	border-top: 			2px solid #595151;
+	border-right: 		1px solid #595151;
+	border-bottom: 		1px solid #595151;
+	border-left: 			2px solid #595151;	
 }
 
 #nav-bar {
-	height: 60px;
-	width: 99vw;
-	border-bottom: 2px solid black;
+	height: 					60px;
+	width: 						99vw;
+	border-bottom: 		2px solid #595151;
 }
 
 #nav-bar h1 {
-	float: left;
-	margin: 15px 0 0 0;
+	float: 						left;
+	margin: 					15px 0 0 20px;
+	color: 						#595151;
+	font-family: 			'Crete Round', serif;
+	font-size: 				42px;
+	position: 				absolute;
+}
+
+#nav-bar h1:hover {
+	color: 						#E7E4D5;
 }
 
 #user-info {
 	float: right;
-	margin-top: 30px;
-	margin-right: 20px;
+	margin-top: 34px;
+}
+
+#log-out {
+	float: 						right;
+	margin-right: 		8px;
+	margin-left: 			8px;
 }
 
 #sign-up {
-	width: 50vw;
-	margin: 0 auto;
-	text-align: center;
+	width: 						50vw;
+	margin: 					70px auto 0 auto;
+	padding: 					20px 0;
+	text-align: 			center;
+	border-top: 			1px solid #595151;
+	border-right: 		2px solid #595151;
+	border-bottom: 		2px solid #595151;
+	border-left: 			1px solid #595151;
+	display: 					none;
 }
 
 #sign-up input {
-	font-size: 26px;
-	display: block;
-	margin: 5px auto;
-	width: 75%;
-	text-align: center;
+	font-size: 				26px;
+	display: 					block;
+	margin: 					5px auto;
+	width: 						75%;
+	text-align: 			center;
 }
 
 #sign-up-button {
-	height: 40px;
-	font-size: 26px;
-	width: 60%;
-	margin: 0 auto;
+	height: 					40px;
+	font-size: 				26px;
+	width: 						60%;
+	margin: 					20px auto 0 auto;
+}
+
+#or-log-in {
+	margin-top: 			10px;
 }
 
 #log-in {
-	width: 50vw;
-	margin: 0 auto;
-	text-align: center;
+	width: 						50vw;
+	margin: 					70px auto 0 auto;
+	padding: 					20px 0;
+	text-align: 			center;
+	border-top: 			1px solid #595151;
+	border-right: 		2px solid #595151;
+	border-bottom: 		2px solid #595151;
+	border-left: 			1px solid #595151;
+	display: 					none;
 }
 
 #log-in input {
-	font-size: 26px;
-	display: block;
-	margin: 5px auto;
-	width: 75%;
-	text-align: center;
+	font-size: 				26px;
+	display: 					block;
+	margin: 					5px auto;
+	width: 						75%;
+	text-align: 			center;
 }
 
 #log-in-button {
-	height: 40px;
-	font-size: 26px;
-	width: 60%;
-	margin: 0 auto;
+	height: 					40px;
+	font-size: 				26px;
+	width: 						60%;
+	margin: 					20px auto 0 auto;
+}
+
+#or-sign-up {
+	margin-top: 			10px;
 }
 
 .technology {
-	font-size: 30px;
-	margin: 2vw;
-	padding: 3vw;
-	border: 1px solid black;
-	display: inline-block;
-	width: 45vw;
-	text-align: center;
+	font-size: 				30px;
+	margin: 					2%;
+	padding: 					3%;
+	display: 					inline-block;
+	width: 						45%;
+	text-align: 			center;
+	border-top: 			1px solid #595151;
+	border-right: 		2px solid #595151;
+	border-bottom: 		2px solid #595151;
+	border-left: 			1px solid #595151;
+}
+
+.technology:hover {
+	background-color: #E7E4D5;
+}
+
+.technology:active {
+	border-top: 			2px solid #595151;
+	border-right: 		1px solid #595151;
+	border-bottom: 		1px solid #595151;
+	border-left: 			2px solid #595151;
 }
 
 #all-methods {
-	height: 90vh;
-	overflow: scroll;
-	width: 20vw;
-	border-right:1px solid black;
-	display: inline-block;
-	display: none;
+	height: 					90vh;
+	overflow: 				scroll;
+	width: 						20vw;
+	min-width: 				240px;
+	border-right: 		1px solid #595151;
+	display: 					none;
 }
 
 #completion {
-	padding: 10px 0;
-	border-bottom: 1px solid black;
-	margin-bottom: 5px;
+	padding: 					10px 0;
+	border-bottom: 		1px solid #595151;
+	margin-bottom: 		5px;
+}
+
+#compare {
+	float: 						right;
+	margin-right: 		8px;
+	border-top: 			1px solid #595151;
+	border-right: 		2px solid #595151;
+	border-bottom: 		2px solid #595151;
+	border-left: 			1px solid #595151;
+}
+
+#compare:hover {
+	background-color: #E7E4D5;
 }
 
 #method-container {
-	display: inline-block;
-	height: 90vh;
-	width: 77vw;
-	vertical-align: top;
-	text-align: center;
+	display: 					inline-block;
+	height: 					90vh;
+	width: 						77vw;
+	vertical-align: 	top;
+	text-align: 			center;
 }
 
 #method {
@@ -102,6 +190,14 @@
 
 .known {
 	color: green;
+}
+
+.halfknown {
+	color: brown;
+}
+
+.unknown {
+	color: red;
 }
 
 #method-name {
@@ -123,7 +219,7 @@
 	height: 100px;
 	width: 100px;
 	border-radius: 50px;
-	border: 2px solid black;
+	border: 2px solid #595151;
 	display: inline-block;
 }
 
@@ -146,4 +242,24 @@ iframe {
 	top: 10vh;
 	width: 80vw;
 	height: 80vh;
+}
+
+.partner {
+	width: 45%;
+	border: 1px solid #595151;
+	margin: 2%;
+	padding: 3%;
+	text-align: center;
+}
+
+.partner .name {
+	font-size: 40px;
+}
+
+.partner .email {
+	font-size: 20px;
+}
+
+.partner .score {
+	font-size: 30px;
 }

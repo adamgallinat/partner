@@ -17,10 +17,15 @@ App.Views.ListMethod = Backbone.View.extend({
 				}
 			}.bind(this));
 			if (methodKnowledge) {
-				this.$el.addClass('known')
-								.append($('<div>').html(methodKnowledge.comfort));
+				if (methodKnowledge.comfort === 0) {
+					this.$el.addClass('unknown');
+				} else if (methodKnowledge.comfort === 1) {
+					this.$el.addClass('halfknown');
+				} else if (methodKnowledge.comfort === 2) {
+					this.$el.addClass('known');
+				}
 			} else {
-				this.$el.append($('<div>').html(0));
+				this.$el.addClass('unknown');
 			}
 	},
 	events: {
@@ -33,8 +38,13 @@ App.Views.ListMethod = Backbone.View.extend({
 	},
 	reRender: function() {
 		this.$el.empty();
+		if (parseInt(this.model.get('methodKnowledge').comfort) === 0) {
+			this.$el.addClass('unknown');
+		} else if (parseInt(this.model.get('methodKnowledge').comfort) === 1) {
+			this.$el.addClass('halfknown');
+		} else if (parseInt(this.model.get('methodKnowledge').comfort) === 2) {
+			this.$el.addClass('known');
+		}
 		this.$el.html(this.template(this.model.toJSON()));
-		this.$el.addClass('known');
-		this.$el.append($('<div>').html(this.model.get('methodKnowledge').comfort));
 	}
 });

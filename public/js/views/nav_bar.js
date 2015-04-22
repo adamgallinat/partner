@@ -9,7 +9,8 @@ App.Views.NavBar = Backbone.View.extend({
 		this.$el.html(this.template(this.model.toJSON()));
 	},
 	events: {
-		'click #log-out': 'logOut'
+		'click #log-out': 'logOut',
+		'click h1': 'returnToTechnologies'
 	},
 	logOut: function() {
 		$.ajax({
@@ -22,5 +23,11 @@ App.Views.NavBar = Backbone.View.extend({
 				App.navBar.render();
 				App.logIn.render();
 			}.bind(this));
+	},
+	returnToTechnologies: function() {
+		if (App.navBar.model.get('first_name')) {
+			App.clearDisplay();
+			App.technologies.render();
+		}
 	}
 });

@@ -5,6 +5,7 @@ App.Views.LogIn = Backbone.View.extend({
 		this.template = Handlebars.compile($('#log-in-template').html());
 	},
 	render: function() {
+		this.$el.show();
 		this.$el.html(this.template());
 	},
 	events: {
@@ -36,7 +37,6 @@ App.Views.LogIn = Backbone.View.extend({
 			response.push($('<li>').html('Email address cannot be blank!'));
 		}
 		if (!$('[name=password]').val()) {
-			debugger;
 			response.push($('<li>').html('Password cannot be blank!'));
 		} else if ($('[name=password]').val().length < 6) {
 			response.push($('<li>').html('Password must be > 6 characters!'));

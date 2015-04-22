@@ -5,12 +5,8 @@ App.Views.AllMethods = Backbone.View.extend({
 	},
 	renderAll: function() {
 		this.$el.empty();
-		// $.get('/knowledges/' + App.navBar.model.get('id') + '/' + App.currentTechnology)
-		// 	.done(function(data) {
-		// 		App.currentUserKnowledges = data;
-				this.collection.each(this.renderOne, this);
-				this.renderPercentComplete();
-			// }.bind(this));
+		this.collection.each(this.renderOne, this);
+		this.renderPercentComplete();
 		this.$el.css('display', 'inline-block');
 	},
 	renderOne: function(method) {
@@ -30,6 +26,6 @@ App.Views.AllMethods = Backbone.View.extend({
 	},
 	renderPartners: function() {
 		App.clearDisplay();
-		App.partnerList.render();
+		App.partnerList.getKnowledges();
 	}
 });

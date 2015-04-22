@@ -11,6 +11,7 @@ App.Views.Technologies = Backbone.View.extend({
 					return {name: technology};
 				});
 				this.$el.html(this.template(handlebarsData));
+				this.$el.show();
 			}.bind(this));
 	},
 	events: {

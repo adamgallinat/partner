@@ -14,6 +14,24 @@ knowledgeRouter.get('/', function(req, res) {
 		});
 });
 
+knowledgeRouter.get('/of_methods', function(req, res) {
+	var methodList = req.query.methodList;
+	var response = [];
+	methodList = methodList.split(',')
+												 .map(function(method) {
+		return parseInt(method);
+	});
+	Knowledge.findAll()
+		.then(function(knowledges) {
+			knowledges.forEach(function(knowledge) {
+				if (methodList.indexOf(knowledge.method_id) !== -1) {
+					response.push(knowledge);
+				}
+			});
+			res.send(response);
+		});
+});
+
 knowledgeRouter.get('/:user_id', function(req, res) {
 	Knowledge.findAll({where: {user_id: req.params.user_id}})
 		.then(function(knowledges) {

@@ -4,13 +4,14 @@ var App = {
 	Views: {},
 	Routers: {},
 	clearDisplay: function() {
-		$('#sign-up').empty();
-		$('#log-in').empty();
-		$('#technologies').empty();
+		$('#sign-up').hide().empty();
+		$('#log-in').hide().empty();
+		$('#technologies').hide().empty();
 		$('#all-methods').hide().empty();
 		$('#method-container').hide();
 		$('#method').empty();
 		$('#modal').empty();
+		$('#partner-list').empty();
 	}
 };
 

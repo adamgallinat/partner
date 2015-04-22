@@ -5,6 +5,7 @@ App.Views.SignUp = Backbone.View.extend({
 		this.template = Handlebars.compile($('#sign-up-template').html());
 	},
 	render: function() {
+		this.$el.show();
 		this.$el.html(this.template());
 	},
 	events: {
