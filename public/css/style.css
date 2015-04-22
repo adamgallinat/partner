@@ -146,13 +146,20 @@ button:active {
 	border-left: 			2px solid #595151;
 }
 
+#methods-page {
+	width: 						100%;
+	display: 					table;
+}
+
 #all-methods {
 	height: 					90vh;
 	overflow: 				scroll;
 	width: 						20vw;
 	min-width: 				240px;
 	border-right: 		1px solid #595151;
+	background-color: white;
 	display: 					none;
+	z-index: 					99;
 }
 
 #completion {
@@ -175,17 +182,22 @@ button:active {
 }
 
 #method-container {
-	display: 					inline-block;
+	display: 					table-cell;
 	height: 					90vh;
 	width: 						77vw;
 	vertical-align: 	top;
 	text-align: 			center;
 }
 
+#method-container {
+	z-index: 1;
+}
+
 #method {
 	display: none;
 	width: 75%;
 	margin: 0 auto;
+	z-index: 1;
 }
 
 .known {
@@ -250,6 +262,7 @@ iframe {
 	margin: 2%;
 	padding: 3%;
 	text-align: center;
+	display: inline-block;
 }
 
 .partner .name {
@@ -260,6 +273,6 @@ iframe {
 	font-size: 20px;
 }
 
-.partner .score {
+.partner .skill {
 	font-size: 30px;
 }

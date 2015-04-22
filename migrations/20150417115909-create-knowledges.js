@@ -10,10 +10,12 @@ module.exports = {
       },
       method_id: {
         type: DataTypes.INTEGER,
+        unique: 'myComposite',
         allowNull: false
       },
       user_id: {
         type: DataTypes.INTEGER,
+        unique: 'myComposite',
         allowNull: false
       },
       comfort: {

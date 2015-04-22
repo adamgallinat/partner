@@ -49,7 +49,6 @@ App.Views.PartnerList = Backbone.View.extend({
 		});
 
 		userRankings = _.sortBy(userRankings, 'skill');
-		userRankings.reverse();
 		this.renderAll(userRankings);
 	},
 	renderAll: function(userRankings) {

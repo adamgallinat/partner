@@ -1,9 +1,19 @@
 "use strict";
 module.exports = function(sequelize, DataTypes) {
   var knowledges = sequelize.define("knowledges", {
-    method_id: DataTypes.INTEGER,
-    user_id: DataTypes.INTEGER,
-    comfort: DataTypes.INTEGER
+    method_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      unique: 'myComposite'
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      unique: 'myComposite'
+    },
+    comfort: {
+      type: DataTypes.INTEGER
+    }
   }, {
     classMethods: {
       associate: function(models) {

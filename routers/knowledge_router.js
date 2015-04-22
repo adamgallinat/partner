@@ -77,6 +77,16 @@ knowledgeRouter.put('/:user_id/:method_id', function(req, res) {
 		});
 });
 
+knowledgeRouter.delete('/single/:id', function(req, res) {
+	Knowledge.findOne(req.params.id)
+		.then(function(knowledge) {
+			knowledge.destroy()
+				.then(function() {
+					res.send(knowledge);
+				});
+		});
+});
+
 knowledgeRouter.delete('/:user_id', function(req, res) {
 	Knowledge.findAll({where: {user_id: req.params.user_id}})
 		.then(function(knowledges) {
@@ -86,5 +96,6 @@ knowledgeRouter.delete('/:user_id', function(req, res) {
 				});
 		});
 });
+
 
 module.exports = knowledgeRouter;

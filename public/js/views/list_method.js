@@ -38,6 +38,7 @@ App.Views.ListMethod = Backbone.View.extend({
 	},
 	reRender: function() {
 		this.$el.empty();
+		this.$el.removeClass('unknown halfknown known');
 		if (parseInt(this.model.get('methodKnowledge').comfort) === 0) {
 			this.$el.addClass('unknown');
 		} else if (parseInt(this.model.get('methodKnowledge').comfort) === 1) {
