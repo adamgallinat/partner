@@ -149,6 +149,26 @@ describe('User', function() {
 					done();
 				});
 		});
+	});
+
+	context('valid user', function() {
+		beforeEach(function() {
+			validUser = User.build({
+				first_name: 'Adam',
+				last_name: 'Gallinat',
+				email: 'adam@gallin.at',
+				password_digest: '12345678'
+			});
+		});
+
+		it('should not have errors', function(done) {
+			validUser
+				.validate()
+				.then(function(err) {
+					expect(err).to.be.undefined;
+					done();
+				});
+		});
 
 	});
 });
