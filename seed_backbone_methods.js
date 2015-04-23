@@ -20,8 +20,8 @@ request({
 					url: 'http://backbonejs.org/' + $(this).attr('href'),
 					technology: 'Backbone'
 				};
-				// Method.create(method);
-				console.log(method);
+				Method.create(method);
+				// console.log(method);
 			});
 		}
 	}
