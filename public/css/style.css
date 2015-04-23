@@ -126,7 +126,6 @@ button:active {
 	border-right: 		2px solid #595151;
 	border-bottom: 		2px solid #595151;
 	border-left: 			1px solid #595151;
-/*	display: 					none;*/
 }
 
 #log-in input {
@@ -341,7 +340,7 @@ iframe {
 	font-size: 				30px;
 }
 
-@media screen and (max-width: 784px) {
+@media screen and (max-device-width: 414px) {
 	.technology {
 		width: 90%;
 		margin: 4%;
