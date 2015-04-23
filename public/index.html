@@ -31,6 +31,7 @@
 		<div id='log-in'></div>
 		<div id='technologies'></div>
 		<div id='methods-page'>
+			<div id='completion'></div>
 			<div id='all-methods'></div>
 			<div id='method-container'>
 				<div id='method'></div>
@@ -90,9 +91,9 @@
 	<template id='method-template'>
 		<div data-url={{url}} id='method-name'>{{name}}</div>
 		<div id='method-rating'>
-			<span class='dot' data-val='0'></span>
-			<span class='dot' data-val='1'></span>
-			<span class='dot' data-val='2'></span>
+			<span class='dot' data-val='0'>X</span>
+			<span class='dot' data-val='1'>?</span>
+			<span class='dot' data-val='2'>✓</span>
 			<div id='left'><<</div>
 			<div id='right'>>></div>
 		</div>

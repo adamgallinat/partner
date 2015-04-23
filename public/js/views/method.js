@@ -12,17 +12,18 @@ App.Views.Method = Backbone.View.extend({
 		this.$el.show();
 	},
 	renderComfort: function() {
-		if (!this.model.get('methodKnowledge')) {
-			$('[data-val=0]').addClass('selected');
-		} else {
-			if (this.model.get('methodKnowledge').comfort === 0) {
-				$('[data-val=0]').addClass('selected');
-			} else if (this.model.get('methodKnowledge').comfort === 1) {
-				$('[data-val=1]').addClass('selected');
-			} else if (this.model.get('methodKnowledge').comfort === 2) {
-				$('[data-val=2]').addClass('selected');
-			}
-		}
+		// debugger;
+		// if (!this.model.get('methodKnowledge').comfort) {
+		// 	$('[data-val=0]').addClass('selected');
+		// } else {
+		// 	if (this.model.get('methodKnowledge').comfort === 0) {
+		// 		$('[data-val=0]').addClass('selected');
+		// 	} else if (this.model.get('methodKnowledge').comfort === 1) {
+		// 		$('[data-val=1]').addClass('selected');
+		// 	} else if (this.model.get('methodKnowledge').comfort === 2) {
+		// 		$('[data-val=2]').addClass('selected');
+		// 	}
+		// }
 		$('.dot').on('click', function() {
 			App.method.setComfort(parseInt($(this).data('val')));
 		});

@@ -1,10 +1,15 @@
 @import url(http://fonts.googleapis.com/css?family=Crete+Round);
 @import url(http://fonts.googleapis.com/css?family=Lora);
+@import url(http://fonts.googleapis.com/css?family=Signika:700);
 
 * {
 	box-sizing: 			border-box;
 	font-family: 			'Lora', serif;
 	cursor: 					default;
+}
+
+body {
+	overflow: hidden;
 }
 
 button {
@@ -152,20 +157,36 @@ button:active {
 }
 
 #all-methods {
-	height: 					90vh;
+	height: 					86vh;
 	overflow: 				scroll;
 	width: 						20vw;
 	min-width: 				240px;
 	border-right: 		1px solid #595151;
 	background-color: white;
 	display: 					none;
+	position: 				relative;
 	z-index: 					99;
+}
+
+.known {
+	color: 						#379F7A;
+}
+
+.halfknown {
+	color: 						#BBB749;
+}
+
+.unknown {
+	color: 						#A82743;
 }
 
 #completion {
 	padding: 					10px 0;
+	border-right: 		1px solid #595151;
 	border-bottom: 		1px solid #595151;
-	margin-bottom: 		5px;
+	width: 						20vw;
+	min-width: 				240px;
+	display: 					none;
 }
 
 #compare {
@@ -179,96 +200,94 @@ button:active {
 
 #method-container {
 	display: 					table-cell;
-	height: 					90vh;
+	height: 					86vh;
 	width: 						77vw;
 	vertical-align: 	top;
 	text-align: 			center;
 }
 
-#method-container {
-	z-index: 1;
-}
-
 #method {
-	display: none;
-	width: 75%;
-	margin: 0 auto;
-	z-index: 1;
-}
-
-.known {
-	color: green;
-}
-
-.halfknown {
-	color: brown;
-}
-
-.unknown {
-	color: red;
+	display: 					none;
+	width: 						75%;
+	margin: 					0 auto;
 }
 
 #method-name {
-	font-size: 60px;
-	margin: 20px 0;
+	font-size: 				60px;
+	margin: 					20px 0;
+	height: 					150px;
 }
 
 #left {
-	float: left;
-	font-size: 40px;
+	float: 						left;
+	font-size: 				40px;
 }
 
 #right {
-	float: right;
-	font-size: 40px;
+	float: 						right;
+	font-size: 				40px;
 }
 
 .dot {
-	height: 100px;
-	width: 100px;
-	border-radius: 50px;
-	border: 2px solid #595151;
-	display: inline-block;
+	height: 					100px;
+	width: 						100px;
+	border-radius: 		50px;
+	border: 					2px solid #595151;
+	display: 					inline-block;
+	font-size: 				80px;
+	font-family: 			'Signika';
 }
 
-.selected {
-	background-color: green;
+.dot:nth-child(1):hover {
+	background-color: #A82743;
+}
+
+.dot:nth-child(2):hover {
+	background-color: #BBB749;
+}
+
+.dot:nth-child(3):hover {
+	background-color: #379F7A;
+}
+
+.dot:active {
+	color: white;
 }
 
 #shader {
-	position: fixed;
-	height: 100vh;
-	width: 100vw;
-	top: 0;
-	left: 0;
+	position: 				fixed;
+	height: 					100vh;
+	width: 						100vw;
+	top: 							0;
+	left: 						0;
 	background-color: rgba(0,0,0,0.5);
 }
 
 iframe {
-	position: fixed;
-	left: 10vw;
-	top: 10vh;
-	width: 80vw;
-	height: 80vh;
+	position: 				fixed;
+	left: 						10vw;
+	top: 							10vh;
+	width: 						80vw;
+	height: 					80vh;
 }
 
 .partner {
-	width: 45%;
-	border: 1px solid #595151;
-	margin: 2%;
-	padding: 3%;
-	text-align: center;
-	display: inline-block;
+	width: 						45%;
+	border: 					1px solid #595151;
+	margin: 					2%;
+	padding: 					3%;
+	text-align: 			center;
+	display: 					inline-block;
 }
 
 .partner .name {
-	font-size: 40px;
+	font-size: 				40px;
 }
 
 .partner .email {
-	font-size: 20px;
+	font-size: 				20px;
 }
 
 .partner .skill {
-	font-size: 30px;
+	font-size: 				30px;
 }

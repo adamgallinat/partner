@@ -5,6 +5,7 @@ App.Views.AllMethods = Backbone.View.extend({
 	},
 	renderAll: function() {
 		this.$el.empty();
+		$('#completion').show();
 		this.collection.each(this.renderOne, this);
 		this.renderPercentComplete();
 		this.$el.css('display', 'inline-block');
@@ -15,8 +16,8 @@ App.Views.AllMethods = Backbone.View.extend({
 	},
 	renderPercentComplete: function() {
 		var percentComplete = Math.floor((App.currentUserKnowledges.length / this.collection.length) * 100);
-		$('#completion').remove();
-		this.$el.prepend($('<div id="completion">').html(percentComplete + '% complete'));
+		$('#completion').empty;
+		$('#completion').html(percentComplete + '% complete');
 		if (percentComplete === 100) {
 			$('#completion').append($('<button id="compare">Find a Partner!</button>'))
 		}

@@ -47,5 +47,6 @@ App.Views.ListMethod = Backbone.View.extend({
 			this.$el.addClass('known');
 		}
 		this.$el.html(this.template(this.model.toJSON()));
+		this.$el.parent().animate({scrollTop: this.el.offsetTop - 152}, 150);
 	}
 });

@@ -8,6 +8,7 @@ var App = {
 		$('#log-in').hide().empty();
 		$('#technologies').hide().empty();
 		$('#all-methods').hide().empty();
+		$('#completion').hide().empty();
 		$('#method-container').hide();
 		$('#method').empty();
 		$('#modal').empty();
