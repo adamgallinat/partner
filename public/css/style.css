@@ -165,17 +165,14 @@ button:active {
 	background-color: white;
 	display: 					none;
 	position: 				relative;
-	z-index: 					99;
 }
 
 .known {
 	color: 						#379F7A;
 }
-
 .halfknown {
 	color: 						#BBB749;
 }
-
 .unknown {
 	color: 						#A82743;
 }
@@ -216,6 +213,10 @@ button:active {
 	font-size: 				60px;
 	margin: 					20px 0;
 	height: 					150px;
+}
+
+#method-name:hover {
+	color: 						#379F7A
 }
 
 #left {

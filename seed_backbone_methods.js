@@ -14,13 +14,14 @@ request({
 			var category = $(lists[i]).prev().text().trim();
 			var items = ($(lists[i]).children('li').children('a'));
 			items.each(function() {
+				var nameSlug = $(this).html().split('<b>').join('').split('</b>').join('');
 				var method = {
-					name: category + ': ' + $(this).html(),
+					name: category + ': ' + nameSlug,
 					url: 'http://backbonejs.org/' + $(this).attr('href'),
 					technology: 'Backbone'
 				};
-				Method.create(method);
-				// console.log(method);
+				// Method.create(method);
+				console.log(method);
 			});
 		}
 	}
