@@ -10,6 +10,7 @@ var App = {
 		$('#all-methods').hide().empty();
 		$('#completion').hide().empty();
 		$('#method-container').hide();
+		$('#methods-page').hide();
 		$('#method').empty();
 		$('#modal').empty();
 		$('#partner-list').empty();
@@ -18,6 +19,7 @@ var App = {
 
 $(function() {
 	console.log('Loaded, bro.');
+	App.clearDisplay();
 	App.users = new App.Collections.Users();
 	App.navBar = new App.Views.NavBar({model: new App.Models.User()});
 	App.logIn = new App.Views.LogIn();

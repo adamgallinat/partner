@@ -4,6 +4,8 @@ App.Views.AllMethods = Backbone.View.extend({
 		console.log('new rate method view created');
 	},
 	renderAll: function() {
+		// $('#methods-list').show();
+		$('#methods-page').show();
 		$('#all-methods').empty();
 		$('#completion').show();
 		this.collection.each(this.renderOne, this);

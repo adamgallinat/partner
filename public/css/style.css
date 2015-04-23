@@ -9,7 +9,7 @@
 }
 
 body {
-	overflow: 				hidden;
+	margin-bottom: 		0;
 }
 
 input:focus {
@@ -39,7 +39,6 @@ button:active {
 #nav-bar {
 	height: 					60px;
 	width: 						99vw;
-	margin-bottom: 		5px;
 	border-bottom: 		2px solid #595151;
 }
 
@@ -60,7 +59,7 @@ button:active {
 #user-info {
 	float: 						right;
 	margin: 					37px 40px 0 0;
-	position: 				fixed;
+	position: 				absolute;
 	right: 						0;
 }
 
@@ -93,7 +92,6 @@ button:active {
 	border-right: 		2px solid #595151;
 	border-bottom: 		2px solid #595151;
 	border-left: 			1px solid #595151;
-	display: 					none;
 }
 
 #sign-up input {
@@ -128,7 +126,7 @@ button:active {
 	border-right: 		2px solid #595151;
 	border-bottom: 		2px solid #595151;
 	border-left: 			1px solid #595151;
-	display: 					none;
+/*	display: 					none;*/
 }
 
 #log-in input {
@@ -191,7 +189,6 @@ button:active {
 	min-width: 				240px;
 	border-right: 		1px solid #595151;
 	background-color: white;
-	display: 					none;
 	position: 				relative;
 }
 
@@ -202,9 +199,6 @@ button:active {
 .method .name {
 	cursor: 					pointer;
 	display: 					inline;
-}
-.method .name:hover {
-	/*padding-left: 		10px;*/
 }
 
 .known {
@@ -223,7 +217,6 @@ button:active {
 	border-bottom: 		1px solid #595151;
 	width: 						20vw;
 	min-width: 				240px;
-	display: 					none;
 }
 
 #compare {
@@ -244,7 +237,6 @@ button:active {
 }
 
 #method {
-	display: 					none;
 	width: 						75%;
 	margin: 					0 auto;
 }
@@ -324,6 +316,10 @@ iframe {
 	height: 					80vh;
 }
 
+#partner-list {
+	overflow: 				scroll;
+}
+
 .partner {
 	width: 						45%;
 	border: 					1px solid #595151;
@@ -343,4 +339,47 @@ iframe {
 
 .partner .skill {
 	font-size: 				30px;
+}
+
+@media screen and (max-width: 784px) {
+	.technology {
+		width: 90%;
+		margin: 4%;
+		padding: 6%;
+	}
+
+	#methods-list {
+		width: 55%;
+		margin: 0 auto;
+		margin-top: 20px;
+		border: 1px solid #595151;
+	}
+	#completion {
+		width: 100%;
+		border: none;
+		border-bottom: 1px solid #595151;
+	}
+	#all-methods {
+		width: 100%;
+		height: 30vh;
+		border: none;
+	}
+
+	.method {
+		width: 100%;
+	}
+
+	#method-container {
+		display: block;
+		width: 100%;
+	}
+	#method-name {
+		min-height: 0;
+	}
+
+	.partner {
+		width: 90%;
+		margin: 4%;
+		padding: 6%;
+	}
 }
