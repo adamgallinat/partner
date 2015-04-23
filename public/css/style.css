@@ -12,6 +12,10 @@ body {
 	overflow: hidden;
 }
 
+input:focus {
+	outline-color: 		#ABCCBD;
+}
+
 button {
 	background-color: white;
 	border-top: 			1px solid #595151;
@@ -19,15 +23,12 @@ button {
 	border-bottom: 		2px solid #595151;
 	border-left: 			1px solid #595151;
 }
-
 button:focus {
 	outline: 					none;
 }
-
 button:hover {
-	background-color: #E7E4D5;
+	background-color: #ABCCBD;
 }
-
 button:active {
 	border-top: 			2px solid #595151;
 	border-right: 		1px solid #595151;
@@ -48,21 +49,24 @@ button:active {
 	font-family: 			'Crete Round', serif;
 	font-size: 				42px;
 	position: 				absolute;
+	cursor: 					pointer;
 }
 
 #nav-bar h1:hover {
-	color: 						#E7E4D5;
+	/*color: 						#E7E4D5;*/
+	color: 						#379F7A;
 }
 
 #user-info {
 	float: right;
-	margin-top: 34px;
+	margin: 34px 20px 0 0;
 }
 
 #log-out {
 	float: 						right;
 	margin-right: 		8px;
 	margin-left: 			8px;
+	cursor: 					pointer;
 }
 
 #sign-up {
@@ -94,6 +98,10 @@ button:active {
 
 #or-log-in {
 	margin-top: 			10px;
+	cursor: 					pointer;
+}
+#or-log-in:hover {
+	color: 						#379F7A;
 }
 
 #log-in {
@@ -125,6 +133,10 @@ button:active {
 
 #or-sign-up {
 	margin-top: 			10px;
+	cursor: 					pointer;
+}
+#or-sign-up:hover {
+	color: 						#379F7A;
 }
 
 .technology {
@@ -138,10 +150,11 @@ button:active {
 	border-right: 		2px solid #595151;
 	border-bottom: 		2px solid #595151;
 	border-left: 			1px solid #595151;
+	cursor: 					pointer;
 }
 
 .technology:hover {
-	background-color: #E7E4D5;
+	background-color: #ABCCBD;
 }
 
 .technology:active {
@@ -165,6 +178,14 @@ button:active {
 	background-color: white;
 	display: 					none;
 	position: 				relative;
+}
+
+.method .name {
+	cursor: 					pointer;
+	display: 					inline;
+}
+.method .name:hover {
+	padding-left: 		10px;
 }
 
 .known {
@@ -212,7 +233,8 @@ button:active {
 #method-name {
 	font-size: 				60px;
 	margin: 					20px 0;
-	height: 					150px;
+	min-height: 			150px;
+	cursor: 					pointer;
 }
 
 #method-name:hover {
@@ -237,22 +259,33 @@ button:active {
 	display: 					inline-block;
 	font-size: 				80px;
 	font-family: 			'Signika';
+	cursor: 					pointer;
 }
 
 .dot:nth-child(1):hover {
 	background-color: #A82743;
 }
-
 .dot:nth-child(2):hover {
 	background-color: #BBB749;
 }
-
 .dot:nth-child(3):hover {
 	background-color: #379F7A;
 }
-
 .dot:active {
 	color: white;
+}
+
+#left {
+	cursor: 					pointer;
+}
+#left:hover {
+	color: 						#379F7A;
+}
+#right {
+	cursor: 					pointer;
+}
+#right:hover {
+	color: 						#379F7A;	
 }
 
 #shader {

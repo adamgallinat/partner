@@ -9,6 +9,7 @@ App.Views.AllMethods = Backbone.View.extend({
 		this.collection.each(this.renderOne, this);
 		this.renderPercentComplete();
 		this.$el.css('display', 'inline-block');
+		$('#compare').on('click', this.renderPartners);
 	},
 	renderOne: function(method) {
 		var newMethodView = new App.Views.ListMethod({model: method});
