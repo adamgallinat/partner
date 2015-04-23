@@ -340,7 +340,7 @@ iframe {
 	font-size: 				30px;
 }
 
-@media screen and (max-device-width: 414px) {
+@media screen and (max-width: 784px) {
 	.technology {
 		width: 90%;
 		margin: 4%;
