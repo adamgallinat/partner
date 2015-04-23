@@ -16,12 +16,12 @@ request({
 			var name = $(domItems[i]).html();
 			if (name.split('(')[1]) {
 				name = name.split('(')[0] + '()';
+				item.name = name;
+				item.url = 'http://expressjs.com/4x/api.html#' + name.split('(')[0];
+				item.technology = 'Express Test';
+				// console.log(item);
+				Method.create(item);
 			}
-			item.name = name;
-			item.url = 'http://expressjs.com/4x/api.html#' + name.split('(')[0];
-			item.technology = 'Express';
-			// console.log(item);
-			Method.create(item);
 		}
 	}
 });
