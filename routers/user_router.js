@@ -8,6 +8,22 @@ var express          = require('express'),
 
 var userRouter = express.Router();
 
+var authenticate = function(req, res, next) {
+	if (req.session.currentUser) {
+		next();
+	} else {
+		res.status(401).send({error: 401, msg: 'Not logged in'});
+	}
+};
+
+var authorize = function(req, res, next) {
+	if (req.session.currentUser === parseInt(req.params.id)) {
+		next();
+	} else {
+		res.status(403).send({error: 403, msg: 'Not authorized'});
+	}
+};
+
 userRouter.get('/', function(req, res) {
 	User.findAll()
 		.then(function(users) {
@@ -40,7 +56,7 @@ userRouter.post('/', function(req, res) {
 	});
 });
 
-userRouter.put('/:id', function(req, res) {
+userRouter.put('/:id', authenticate, authorize, function(req, res) {
 	User.findOne({where: {id: req.params.id}})
 		.then(function(user) {
 			user.update(req.body)
@@ -50,7 +66,7 @@ userRouter.put('/:id', function(req, res) {
 		});
 });
 
-userRouter.delete('/:id', function(req, res) {
+userRouter.delete('/:id', authenticate, authorize, function(req, res) {
 	User.findOne({where: {id: req.params.id}})
 		.then(function(user) {
 			user.destroy()

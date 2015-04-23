@@ -171,10 +171,6 @@ button:active {
 #compare {
 	float: 						right;
 	margin-right: 		8px;
-	border-top: 			1px solid #595151;
-	border-right: 		2px solid #595151;
-	border-bottom: 		2px solid #595151;
-	border-left: 			1px solid #595151;
 }
 
 #compare:hover {

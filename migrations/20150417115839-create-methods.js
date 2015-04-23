@@ -11,23 +11,14 @@ module.exports = {
       technology: {
         type: DataTypes.STRING,
         allowNull: false,
-        validate: {
-          notEmpty: {msg: 'Technology field cannot be blank'}
-        }
       },
       name: {
         type: DataTypes.STRING,
         allowNull: false,
-        validate: {
-          notEmpty: {msg: 'Name cannot be blank'}
-        }
       },
       url: {
         type: DataTypes.STRING,
         allowNull: false,
-        validate: {
-          isUrl: {msg: 'Not a valid URL'}
-        }
       },
       createdAt: {
         allowNull: false,

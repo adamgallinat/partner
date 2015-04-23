@@ -1,9 +1,27 @@
 "use strict";
 module.exports = function(sequelize, DataTypes) {
   var methods = sequelize.define("methods", {
-    technology: DataTypes.STRING,
-    name: DataTypes.STRING,
-    url: DataTypes.STRING
+    technology: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: {msg: 'Technology field cannot be blank'}
+      }
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: {msg: 'Name cannot be blank'}
+      }
+    },
+    url: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isUrl: {msg: 'Not a valid URL'}
+      }
+    }
   }, {
     classMethods: {
       associate: function(models) {

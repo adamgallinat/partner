@@ -36,12 +36,11 @@ App.Views.Method = Backbone.View.extend({
 	},
 	newComfort: function(comfort) {
 		var data = {
-			user_id: App.navBar.model.get('id'),
 			method_id: this.model.get('id'),
 			comfort: comfort
 		}
 		$.ajax({
-			url: '/knowledges',
+			url: '/knowledges/' + App.navBar.model.get('id'),
 			method: 'POST',
 			data: data
 		})

@@ -12,7 +12,19 @@ module.exports = function(sequelize, DataTypes) {
       unique: 'myComposite'
     },
     comfort: {
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        isInt: {msg: 'Comfort level must be an integer'},
+        min: {
+          args: [0],
+          msg: 'Comfort level must be >= 0'
+        },
+        max: {
+          args: [2],
+          msg: 'Comfort level must be <= 2'
+        }
+      }
     }
   }, {
     classMethods: {

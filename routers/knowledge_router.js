@@ -7,14 +7,30 @@ var express          = require('express'),
 
 var knowledgeRouter = express.Router();
 
-knowledgeRouter.get('/', function(req, res) {
+var authenticate = function(req, res, next) {
+	if (req.session.currentUser) {
+		next();
+	} else {
+		res.status(401).send({status: 401, msg: 'login required'});
+	}
+};
+
+var authorize = function(req, res, next) {
+	if (req.session.currentUser === parseInt(req.params.user_id)) {
+		next();
+	} else {
+		res.status(403).send({status: 403, msg: 'not authorized'});
+	}
+};
+
+knowledgeRouter.get('/', authenticate, function(req, res) {
 	Knowledge.findAll()
 		.then(function(knowledges) {
 			res.send(knowledges);
 		});
 });
 
-knowledgeRouter.get('/of_methods', function(req, res) {
+knowledgeRouter.get('/of_methods', authenticate, function(req, res) {
 	var methodList = req.query.methodList;
 	var response = [];
 	methodList = methodList.split(',')
@@ -32,14 +48,14 @@ knowledgeRouter.get('/of_methods', function(req, res) {
 		});
 });
 
-knowledgeRouter.get('/:user_id', function(req, res) {
+knowledgeRouter.get('/:user_id', authenticate, function(req, res) {
 	Knowledge.findAll({where: {user_id: req.params.user_id}})
 		.then(function(knowledges) {
 			res.send(knowledges);
 		});
 });
 
-knowledgeRouter.get('/:user_id/:type', function(req, res) {
+knowledgeRouter.get('/:user_id/:type', authenticate, function(req, res) {
 	var response = [];
 	Knowledge.findAll({where: {user_id: req.params.user_id}})
 		.then(function(knowledges) {
@@ -57,14 +73,16 @@ knowledgeRouter.get('/:user_id/:type', function(req, res) {
 		});
 });
 
-knowledgeRouter.post('/', function(req, res) {
-	Knowledge.create(req.body)
+knowledgeRouter.post('/:user_id', authenticate, authorize, function(req, res) {
+	var data = req.body;
+	data.user_id = req.params.user_id;
+	Knowledge.create(data)
 		.then(function(knowledge) {
 			res.send(knowledge);
 		});
 });
 
-knowledgeRouter.put('/:user_id/:method_id', function(req, res) {
+knowledgeRouter.put('/:user_id/:method_id', authenticate, authorize, function(req, res) {
 	Knowledge.findOne({where: {
 		user_id: req.params.user_id,
 		method_id: req.params.method_id
@@ -77,7 +95,7 @@ knowledgeRouter.put('/:user_id/:method_id', function(req, res) {
 		});
 });
 
-knowledgeRouter.delete('/single/:id', function(req, res) {
+knowledgeRouter.delete('/single/:id', authenticate, function(req, res) {
 	Knowledge.findOne(req.params.id)
 		.then(function(knowledge) {
 			knowledge.destroy()
@@ -87,7 +105,7 @@ knowledgeRouter.delete('/single/:id', function(req, res) {
 		});
 });
 
-knowledgeRouter.delete('/:user_id', function(req, res) {
+knowledgeRouter.delete('/:user_id', authenticate, authorize, function(req, res) {
 	Knowledge.findAll({where: {user_id: req.params.user_id}})
 		.then(function(knowledges) {
 			knowledges.destroy()
