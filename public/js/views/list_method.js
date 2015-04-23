@@ -7,7 +7,8 @@ App.Views.ListMethod = Backbone.View.extend({
 		this.render();
 	},
 	render: function() {
-		this.$el.empty();
+		// this.$el.empty();
+		this.mouseoverAnimate(this);
 		this.$el.html(this.template(this.model.toJSON()));
 		var methodKnowledge;
 			App.currentUserKnowledges.forEach(function(knowledge) {
@@ -24,8 +25,6 @@ App.Views.ListMethod = Backbone.View.extend({
 				} else if (methodKnowledge.comfort === 2) {
 					this.$el.addClass('known');
 				}
-			} else {
-				this.$el.addClass('unknown');
 			}
 	},
 	events: {
@@ -48,5 +47,13 @@ App.Views.ListMethod = Backbone.View.extend({
 		}
 		this.$el.html(this.template(this.model.toJSON()));
 		this.$el.parent().animate({scrollTop: this.el.offsetTop - 152}, 150);
+	},
+	mouseoverAnimate: function(method) {
+		method.$el.on('mouseover', function() {
+			$(this).animate({'padding-left':'10px'},100);
+		});
+		method.$el.on('mouseleave', function() {
+			$(this).animate({'padding-left':'0px'},100);
+		});
 	}
 });

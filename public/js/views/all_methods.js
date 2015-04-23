@@ -1,19 +1,18 @@
 App.Views.AllMethods = Backbone.View.extend({
-	el: '#all-methods',
+	el: '#methods-list',
 	initialize: function() {
 		console.log('new rate method view created');
 	},
 	renderAll: function() {
-		this.$el.empty();
+		$('#all-methods').empty();
 		$('#completion').show();
 		this.collection.each(this.renderOne, this);
 		this.renderPercentComplete();
-		this.$el.css('display', 'inline-block');
-		$('#compare').on('click', this.renderPartners);
+		$('#all-methods').css('display', 'inline-block');
 	},
 	renderOne: function(method) {
 		var newMethodView = new App.Views.ListMethod({model: method});
-		this.$el.append(newMethodView.el);
+		$('#all-methods').append(newMethodView.el);
 	},
 	renderPercentComplete: function() {
 		var percentComplete = Math.floor((App.currentUserKnowledges.length / this.collection.length) * 100);
@@ -24,7 +23,7 @@ App.Views.AllMethods = Backbone.View.extend({
 		}
 	},
 	events: {
-		'click #compare': 'renderPartners'
+		'click #compare' : 'renderPartners'
 	},
 	renderPartners: function() {
 		App.clearDisplay();

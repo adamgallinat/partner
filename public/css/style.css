@@ -9,7 +9,7 @@
 }
 
 body {
-	overflow: hidden;
+	overflow: 				hidden;
 }
 
 input:focus {
@@ -180,12 +180,16 @@ button:active {
 	position: 				relative;
 }
 
+.method {
+	color: 						#595151;
+}
+
 .method .name {
 	cursor: 					pointer;
 	display: 					inline;
 }
 .method .name:hover {
-	padding-left: 		10px;
+	/*padding-left: 		10px;*/
 }
 
 .known {
