@@ -19,7 +19,7 @@ request({
 			}
 			item.name = name;
 			item.url = 'http://expressjs.com/4x/api.html#' + name.split('(')[0];
-			item.technology = 'Express 4';
+			item.technology = 'Express';
 			// console.log(item);
 			Method.create(item);
 		}
