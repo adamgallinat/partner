@@ -39,6 +39,7 @@ button:active {
 #nav-bar {
 	height: 					60px;
 	width: 						99vw;
+	margin-bottom: 		5px;
 	border-bottom: 		2px solid #595151;
 }
 
@@ -53,20 +54,34 @@ button:active {
 }
 
 #nav-bar h1:hover {
-	/*color: 						#E7E4D5;*/
 	color: 						#379F7A;
 }
 
 #user-info {
-	float: right;
-	margin: 34px 20px 0 0;
+	float: 						right;
+	margin: 					37px 40px 0 0;
+	position: 				fixed;
+	right: 						0;
+}
+
+#welcome {
+	float: 						none;
+	vertical-align: 	bottom;
+	font-family: 			'Crete Round', serif;
+	font-size: 				20px;
+	display: 					inline-block;
 }
 
 #log-out {
-	float: 						right;
-	margin-right: 		8px;
-	margin-left: 			8px;
+	float: 						none;
+	margin-bottom: 		1px;
 	cursor: 					pointer;
+	font-family: 			'Crete Round', serif;
+	display: 					inline-block;
+}
+
+#log-out:hover {
+	color: 						#379F7A;
 }
 
 #sign-up {
