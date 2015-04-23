@@ -27,6 +27,9 @@ knowledgeRouter.get('/', authenticate, function(req, res) {
 	Knowledge.findAll()
 		.then(function(knowledges) {
 			res.send(knowledges);
+		},
+		function(error) {
+			res.send(error);
 		});
 });
 
@@ -45,6 +48,9 @@ knowledgeRouter.get('/of_methods', authenticate, function(req, res) {
 				}
 			});
 			res.send(response);
+		},
+		function(error) {
+			res.send(error);
 		});
 });
 
@@ -52,6 +58,9 @@ knowledgeRouter.get('/:user_id', authenticate, function(req, res) {
 	Knowledge.findAll({where: {user_id: req.params.user_id}})
 		.then(function(knowledges) {
 			res.send(knowledges);
+		},
+		function(error) {
+			res.send(error);
 		});
 });
 
@@ -69,6 +78,9 @@ knowledgeRouter.get('/:user_id/:type', authenticate, function(req, res) {
     				});
     			});
     			res.send(response);
+    		},
+    		function(error) {
+    			res.send(error);
     		});
 		});
 });
@@ -79,6 +91,9 @@ knowledgeRouter.post('/:user_id', authenticate, authorize, function(req, res) {
 	Knowledge.create(data)
 		.then(function(knowledge) {
 			res.send(knowledge);
+		},
+		function(error) {
+			res.status(422).send(error);
 		});
 });
 
@@ -91,6 +106,9 @@ knowledgeRouter.put('/:user_id/:method_id', authenticate, authorize, function(re
 			knowledge.update(req.body)
 				.then(function(knowledge) {
 					res.send(knowledge);
+				},
+				function(error) {
+					res.send(error);
 				});
 		});
 });
@@ -101,6 +119,9 @@ knowledgeRouter.delete('/single/:id', authenticate, function(req, res) {
 			knowledge.destroy()
 				.then(function() {
 					res.send(knowledge);
+				},
+				function(error) {
+					res.send(error);
 				});
 		});
 });
@@ -111,6 +132,9 @@ knowledgeRouter.delete('/:user_id', authenticate, authorize, function(req, res) 
 			knowledges.destroy()
 				.then(function() {
 					res.send(knowledges);
+				},
+				function(error) {
+					res.send(error);
 				});
 		});
 });

@@ -113,5 +113,6 @@ describe('Knowledge model', function() {
 					expect(err).to.be.undefined;
 				});
 		});
+
 	});
 });
