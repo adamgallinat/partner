@@ -18,7 +18,7 @@ request({
 				name = name.split('(')[0] + '()';
 				item.name = name;
 				item.url = 'http://expressjs.com/4x/api.html#' + name.split('(')[0];
-				item.technology = 'Express Test';
+				item.technology = 'Express';
 				// console.log(item);
 				Method.create(item);
 			}
