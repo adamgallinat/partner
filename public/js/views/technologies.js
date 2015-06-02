@@ -18,7 +18,7 @@ App.Views.Technologies = Backbone.View.extend({
 		'click .technology': 'renderRateMethods'
 	},
 	renderRateMethods: function(clicked) {
-		App.currentTechnology = clicked.target.innerText;
+		App.currentTechnology = clicked.target.innerHTML;
 		App.clearDisplay();
 		$.get('/knowledges/' + App.navBar.model.get('id') + '/' + App.currentTechnology)
 			.done(function(data) {
